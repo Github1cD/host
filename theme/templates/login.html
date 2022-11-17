@@ -1,0 +1,50 @@
+{% load static tailwind_tags %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% tailwind_css %}
+    </head>
+    <body class='bg-lime-100 '>
+      <a class="flex title-font font-medium items-center text-emerald-800 ml-4 text-xl mb-4 md:mb-0" href='/'>
+        Project
+      </a>
+        <section class=" text-gray-400 bg-gray-900 body-font relative bg-blur-sm">
+            <div class="container px-5 py-24 mx-auto">
+              <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Login</h1>
+                
+              </div>
+              <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                <div class="flex flex-wrap -m-2 space-y-4">
+                <form method = 'post'>
+                  {% csrf_token %}
+                    {{ form.as_p}}
+                    {%for i in  messages%}
+                        <p>{{i}}</p>
+                    {% endfor %}
+                 
+                    <br><br>
+                    <input type="submit"  class="flex mx-auto space-y-4  text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg" value="Login">
+                </form>
+                  <div class="p-2 w-full pt-8 mt-8 border-t border-emerald-800 text-center">
+                    
+                      <a
+                        class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
+                        href="/register"
+                      >
+                        Create account
+                      </a><br>
+                    <a
+                    class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
+                    href="/password-reset"
+                    >
+                    Forgot your password?
+                    </a>
+                  </div>
+                </div>
+              </div>
+          </section>
+          
+    </body>
+</html>
